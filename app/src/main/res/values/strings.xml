@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Link</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="enter_message_here">Enter message here</string>
+</resources>
