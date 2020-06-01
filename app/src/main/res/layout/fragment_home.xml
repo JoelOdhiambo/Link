@@ -6,29 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:src="@drawable/robot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button_done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Done"
         android:layout_below="@id/text_input"
-        app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintTop_toTopOf="@id/text_input" />
+        android:text="Read"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input" />
 
     <EditText
         android:id="@+id/text_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="257dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="68dp"
         android:autofillHints="@string/enter_message_here"
         android:ems="10"
         android:hint="@string/enter_message_here"
         android:inputType="text"
-        android:layout_marginTop="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
