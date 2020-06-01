@@ -59,17 +59,16 @@ String contact;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final MediaPlayer sirenSound=MediaPlayer.create(this,R.raw.salamisound);
-        tnumber=(TextView)findViewById(R.id.text_home);
-        Button edit=findViewById(R.id.button_edit);
-
-            edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
-                intent.putExtra(EXTRA_MESSAGE,profileMessage);
-                startActivity(intent);
-            }
-        });
+//        Button edit=findViewById(R.id.button_edit);
+//
+//            edit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
+//                intent.putExtra(EXTRA_MESSAGE,profileMessage);
+//                startActivity(intent);
+//            }
+//        });
 
         FloatingActionButton fab = findViewById(R.id.trust_contact);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -162,6 +161,6 @@ String contact;
 
     @Override
     public void applyTexts(String number) {
-    tnumber.setText(number);
+
     }
 }
