@@ -29,6 +29,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+master
 public class MainActivity extends AppCompatActivity implements EmergencyContactDialog.EmergencyContactDialogListener {
     private static final int REQUEST_CALL = 1;
     EditText contactInput;
@@ -37,6 +38,15 @@ public class MainActivity extends AppCompatActivity implements EmergencyContactD
     private String profileMessage = "Profile edit";
     String contact;
     private String numberFromDialog;
+
+public class MainActivity extends AppCompatActivity implements  EmergencyContactDialog.EmergencyContactDialogListener{
+private static final int REQUEST_CALL=1;
+EditText contactInput;
+private TextView tnumber;
+public  static final String EXTRA_MESSAGE="com.wesley.link.extra.MESSAGE";
+private String profileMessage="Profile edit";
+String contact;
+ master
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
