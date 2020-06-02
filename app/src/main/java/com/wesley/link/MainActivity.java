@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements  EmergencyContact
 private static final int REQUEST_CALL=1;
 EditText contactInput;
 private TextView tnumber;
-private  static final String EXTRA_MESSAGE="com.wesley.link.extra.MESSAGE";
+public  static final String EXTRA_MESSAGE="com.wesley.link.extra.MESSAGE";
 private String profileMessage="Profile edit";
 String contact;
 

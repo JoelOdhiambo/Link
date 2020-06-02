@@ -60,16 +60,6 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <TextView
-            android:id="@+id/date_of_birth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/date_of_birth"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/phone_number" />
-
-        <TextView
             android:id="@+id/age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -122,17 +112,6 @@
             app:layout_constraintHorizontal_bias="0.056"
             app:layout_constraintStart_toEndOf="@+id/phone_number"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-        <TextView
-            android:id="@+id/view_dob"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/your_date_of_birth"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.129"
-            app:layout_constraintStart_toEndOf="@+id/date_of_birth"
-            app:layout_constraintTop_toBottomOf="@+id/view_phone" />
 
         <TextView
             android:id="@+id/view_age"
