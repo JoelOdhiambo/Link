@@ -40,6 +40,7 @@
 
         <TextView
             android:id="@+id/name"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -50,6 +51,7 @@
 
         <TextView
             android:id="@+id/surname"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -61,6 +63,7 @@
 
         <TextView
             android:id="@+id/age"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -72,6 +75,7 @@
 
         <TextView
             android:id="@+id/phone_number"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -85,9 +89,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/your_first_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintHorizontal_bias="0.031"
             app:layout_constraintStart_toEndOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -96,9 +99,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/your_surname"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.903"
+            app:layout_constraintHorizontal_bias="0.708"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -107,9 +109,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/your_phone_number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.056"
+            app:layout_constraintHorizontal_bias="0.04"
             app:layout_constraintStart_toEndOf="@+id/phone_number"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -118,9 +119,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/your_age"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.109"
+            app:layout_constraintHorizontal_bias="0.064"
             app:layout_constraintStart_toEndOf="@+id/age"
             app:layout_constraintTop_toBottomOf="@+id/view_sname" />
 

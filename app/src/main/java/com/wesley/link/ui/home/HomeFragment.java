@@ -31,25 +31,20 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        homeViewModel =
-//                ViewModelProviders.of(this).get(HomeViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-//        final TextView textView = root.findViewById(R.id.text_home);
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
 
         done=root.findViewById(R.id.button_done);
         editTextMessage=root.findViewById(R.id.text_input);
+
+        //Initializing  TTS
         textToSpeech = new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if (status==TextToSpeech.SUCCESS){
                     int ttsLang = textToSpeech.setLanguage(Locale.US);
 
+                    //Check if language is supported
                     if(ttsLang==TextToSpeech.LANG_MISSING_DATA || ttsLang==TextToSpeech.LANG_NOT_SUPPORTED){
                         Log.e("TTS","Oops!The language is not currently supported!");
                     }else{
@@ -66,12 +61,14 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onClick(View arg0) {
+                //Read text when button  is clicked
                 String data =editTextMessage.getText().toString();
                 Log.i("TTS","button clicked: " + data);
 
                 int speechStatus=textToSpeech.speak(data,TextToSpeech.QUEUE_FLUSH,null);
                 if (speechStatus==TextToSpeech.ERROR){
                     Log.e("TTS", "Error in converting Text to Speech!!!");
+                    onDestroy();
                 }
             }
         });

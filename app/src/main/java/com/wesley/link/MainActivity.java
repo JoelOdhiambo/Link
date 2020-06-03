@@ -4,6 +4,7 @@ package com.wesley.link;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -29,25 +30,20 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-master
+
 public class MainActivity extends AppCompatActivity implements EmergencyContactDialog.EmergencyContactDialogListener {
     private static final int REQUEST_CALL = 1;
+    private static final String SHARED_PREFS ="sharedPrefs" ;
+    private static final String NUMBER = "tel";
     EditText contactInput;
     private TextView tnumber;
-    private static final String EXTRA_MESSAGE = "com.wesley.link.extra.MESSAGE";
+    public static final String EXTRA_MESSAGE = "com.wesley.link.extra.MESSAGE";
     private String profileMessage = "Profile edit";
     String contact;
     private String numberFromDialog;
 
-public class MainActivity extends AppCompatActivity implements  EmergencyContactDialog.EmergencyContactDialogListener{
-private static final int REQUEST_CALL=1;
-EditText contactInput;
-private TextView tnumber;
-public  static final String EXTRA_MESSAGE="com.wesley.link.extra.MESSAGE";
-private String profileMessage="Profile edit";
-String contact;
- master
 
+    //Check if app permissions were GRANTED
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == REQUEST_CALL) {
@@ -65,22 +61,14 @@ String contact;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final MediaPlayer sirenSound = MediaPlayer.create(this, R.raw.salamisound);
-//        Button edit=findViewById(R.id.button_edit);
-//
-//            edit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
-//                intent.putExtra(EXTRA_MESSAGE,profileMessage);
-//                startActivity(intent);
-//            }
-//        });
+
 
         FloatingActionButton fab = findViewById(R.id.trust_contact);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + numberFromDialog));
+                //Request for app permissions
                 if (numberFromDialog != null ){
                     if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                         // TODO: Consider calling
@@ -95,7 +83,7 @@ String contact;
                         startActivity(i);
                     }
                 }else{
-                    Toast.makeText(MainActivity.this, "Please enter a phone number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter a phone number in the menu", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -104,7 +92,17 @@ String contact;
         ring.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sirenSound.start();
+                //Set media to be played on floating button click
+                if(!sirenSound.isPlaying())
+                {
+                    sirenSound.setLooping(true);
+                    sirenSound.start();
+
+                }
+                else
+                {
+                    sirenSound.pause();
+                }
             }
         });
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -128,9 +126,6 @@ String contact;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.settings:
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
-                return true;
             case R.id.about:
                 onClickShowAbout(R.id.about);
                 return true;
@@ -180,6 +175,7 @@ String contact;
         builder.show();
         return true;
     }
+
 
 
     @Override

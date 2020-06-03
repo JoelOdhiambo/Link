@@ -7,33 +7,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.wesley.link.ProfileActivity;
 import com.wesley.link.R;
 
-public class NotificationsFragment extends Fragment {
-
+public class NotificationsFragment extends Fragment implements ProfileActivity.setFirstName {
+    public static TextView firstname,surname,number,years;
 //    private NotificationsViewModel notificationsViewModel;
 public static final String EXTRA_MESSAGE="com.wesley.link.extra.MESSAGE";
     private String profileMessage="Profile edit";
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        notificationsViewModel =
-//                ViewModelProviders.of(this).get(NotificationsViewModel.class);
-       View root = inflater.inflate(R.layout.fragment_notifications, container, false);
-//        final TextView textView = root.findViewById(R.id.text_notifications);
-//        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+
+       View root = inflater.inflate(R.layout.fragment_corner, container, false);
+
+        firstname=(TextView) root.findViewById(R.id.textView6);
+        surname=(TextView)root.findViewById(R.id.view_sname);
+        number=(TextView)root.findViewById(R.id.view_phone);
+        years=(TextView)root.findViewById(R.id.view_age);
+        Bundle  bundleFinal;
+                bundleFinal=getArguments();
+        Toast.makeText(root.getContext(), "This is just a preview with test functionality!!", Toast.LENGTH_SHORT).show();
         return root;
     }
 
@@ -50,5 +50,25 @@ public static final String EXTRA_MESSAGE="com.wesley.link.extra.MESSAGE";
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void applyName(String firstName) {
+        firstname.setText(firstName);
+    }
+
+    @Override
+    public void applySname(String sname) {
+        surname.setText(sname);
+    }
+
+    @Override
+    public void applyNo(String phone_no) {
+        number.setText(phone_no);
+    }
+
+    @Override
+    public void applyAge(String age) {
+        years.setText(age);
     }
 }
