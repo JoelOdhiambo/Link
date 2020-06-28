@@ -141,7 +141,10 @@ public class MainActivity extends AppCompatActivity implements EmergencyContactD
     public boolean onClickShowAbout(int item) {
         AlertDialog.Builder myAboutBuilder = new AlertDialog.Builder(MainActivity.this);
         myAboutBuilder.setTitle("About App");
-        myAboutBuilder.setMessage("App by Wesley Joel Odhiambo");
+        myAboutBuilder.setMessage("•Link is a utility focused on users who are verbally challenged to aid in their communication.A user can input text and make it heard using the Android phone's inbuilt Text-to-Speech component.\n" +
+                "\n" +
+                "•This application has two floating action buttons(FABs),green and red.The green FAB is used to make a quick/emergency dial to a 'Contact'after the user inputs the details in the menu.The red FAB plays a siren sound in a loop when the on click. These can be used in case of an emergency.\n"+
+                "\n" +"App by Wesley Joel Odhiambo 110855");
 
         myAboutBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
